@@ -7,9 +7,7 @@ try:
 except:
 	import msgpack_pure as msgpack
 
-##################################
-### Module : read the pdb file ###
-##################################
+# Module : read the pdb file
 def read_pdb_file(fr):
 
 	Atom_List = []
@@ -33,9 +31,7 @@ def read_pdb_msg_file(fr):
 	return Atom_List
 
 
-###########################################
-### Module : read the mulliken.txt file ###
-###########################################
+# Module : read the mulliken.txt file
 def read_mulliken_file(fr):
 
 	Mulliken_List = []
@@ -67,9 +63,7 @@ def read_mulliken_msg_file(fr):
 	return Mulliken_List
 
 
-###################################
-### Module : read the grid file ###
-###################################
+# Module : read the grid file 
 def read_grid_file(fr, Grid_List=[]):
 
 	for line in fr:
@@ -95,9 +89,7 @@ def read_grid_msg_file(fr):
 	return Grid_List
 
 
-##################################
-### Module : read the esp file ###
-##################################
+# Module : read the esp file
 def read_esp_file(fr, Grid_List, ESP_List):
 	Ngrid = len(Grid_List)
 
@@ -116,9 +108,7 @@ def read_esp_msg_file(fr):
 	return ESP_List
 
 
-##################################
-### Module : read the esp file ###
-##################################
+# Module : read the cube file
 def read_cube_file(fr, Cube_List=[], Atom_List=[], Counter_Chg=[], QM_ESP_List=[]):
 
 	for line in fr:
@@ -147,9 +137,7 @@ def read_cube_file(fr, Cube_List=[], Atom_List=[], Counter_Chg=[], QM_ESP_List=[
 				pass
 	
 
-#####################################
-### Module : read the charge file ###
-#####################################
+# Module : read the charge file
 def read_charge_file(fr, Charge_List=[]):
 
 	for line in fr:
