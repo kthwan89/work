@@ -51,7 +51,7 @@ def main():
 
 	# RRMS
 	RRMS = chg_resp.RRMS(X, Y, Lasso_Charge)
-	print RRMS
+
 	# write the data
 	fw_path = args.charge_path[0]
 	fw = open(fw_path, "wb")

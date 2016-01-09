@@ -10,20 +10,6 @@ except:
 import chg_resp
 
 
-def count_sparse(charge):
-	Natom = len(charge) -1
-
-	Nsparse = 0
-	for j in range(Natom):
-
-		chg_value = charge[j]
-		if abs(chg_value) < 1e-3:
-
-			Nsparse += 1
-
-	return Nsparse
-
-
 def iteration(A, B, lasso_param):
 	Natom = len(A)
 	SCF_A = chg_resp.copy_matrixA(A)
@@ -41,7 +27,6 @@ def iteration(A, B, lasso_param):
 				Q_old[j] = 0.0
 
 		for j in range(Natom-1):
-
 			if abs(Q_old[j]) >= zero_threshold:
 				param = lasso_param / abs(Q_old[j])
 
@@ -57,8 +42,7 @@ def iteration(A, B, lasso_param):
 			print "convergence &",Nscf
 			break
 
-		Q_new = chg_resp.SimpleMixing(Q_new, Q_old, 0.85)
-	
+	#	Q_new = chg_resp.SimpleMixing(Q_new, Q_old, 0.85)
 	return Q_new
 	
 
@@ -76,16 +60,21 @@ def L1_norm_sum(charge):
 
 
 def L1_evaluation(X, Y, charge):
-	
 	MSE = resp.MSE(X, Y, charge)
 	L1_norm = L1_norm_sum(charge)
-	
 	L1_evaluation = MSE + L1_norm
 
 	return L1_evaluation
 
 
+def count_sparse(charge):
+	Natom = len(charge) -1
 
+	Nsparse = 0
+	for j in range(Natom):
+		chg_value = charge[j]
+		if abs(chg_value) < 1e-3:
+			Nsparse += 1
 
-
+	return Nsparse
 

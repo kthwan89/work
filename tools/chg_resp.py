@@ -27,19 +27,6 @@ def SCF_convert_matrix(ATOM_LIST, Q_old, Q_target, A, B, SCF_A, SCF_B, TYPE):
 				SCF_A[j][j] = A[j][j] + pnlt_func
 				SCF_B[j] = B[j] + Q_target[j] * pnlt_func
 			
-		"""
-		if TYPE == "harmonic":
-			pnlt_func = wt
-				
-			SCF_A[j][j] = A[j][j] + pnlt_func
-			SCF_B[j] = B[j] + Q_target[j] * pnlt_func
-				
-		elif TYPE == "hyperbolic":
-			pnlt_func = wt / np.sqrt((Q_old[j]-Q_target[j])**2 + b**2)
-			
-			SCF_A[j][j] = A[j][j] + pnlt_func
-			SCF_B[j] = B[j] + Q_target[j] * pnlt_func
-		"""
 
 def Ridge_convert_matrix(ATOM_LIST, A, SCF_A, wt):
 	Natom = len(ATOM_LIST)

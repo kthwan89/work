@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # coding:utf-8
 
-################## Import modules ####################
 import argparse
 import numpy as np
 try:
@@ -58,7 +57,7 @@ def main():
 	MSE = chg_resp.MSE(X, Y, Ridge_CHARGE)
 	ESP_square_sum = chg_resp.ESP_square_sum(Y)
 	RRMS = np.sqrt(MSE/ESP_square_sum)
-	print RRMS
+
 	# write the data
 	fw_path = args.charge_path[0]
 	fw = open(fw_path, "wb")

@@ -3,9 +3,7 @@
 
 import numpy as np
 
-###########################################
-### Module : calculate the ESP on grids ###
-###########################################
+# Module : calculate the ESP on grids
 def calc_ESP(Cube_List, Atom_List, Charge_List, ESP_List):
 	ini_x, ini_y, ini_z = float(Cube_List[0][1]), float(Cube_List[0][2]), float(Cube_List[0][3])
 	Nx, Ny, Nz = int(Cube_List[1][0]), int(Cube_List[2][0]), int(Cube_List[3][0])
@@ -37,4 +35,4 @@ def calc_ESP(Cube_List, Atom_List, Charge_List, ESP_List):
 	
 	ESP_List = np.array(ESP_List)
 	ESP_List = ESP_List.reshape(Nx * Ny, Nz)
-					
+
